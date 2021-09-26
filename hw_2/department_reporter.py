@@ -4,26 +4,27 @@ from collections import defaultdict
 from typing import Tuple, Dict, DefaultDict
 
 
-class EmptyFileException(Exception):
+class BaseFileException(Exception):
+    """Base class exception for the interaction with files"""
+
+    def __init__(self, message):
+        self.message = message
+        super().__init__(self.message)
+
+    def __str__(self):
+        return self.message
+
+
+class EmptyFileException(BaseFileException):
     """Raised when there is not data in file"""
 
-    def __init__(self, message='Пустой файл. Попробуйте другой'):
-        self.message = message
-        super().__init__(self.message)
-
-    def __str__(self):
-        return self.message
+    pass
 
 
-class WrongFileFormatException(Exception):
+class WrongFileFormatException(BaseFileException):
     """Raised when the file has unexpected format to process"""
 
-    def __init__(self, message='Неверный формат файла.'):
-        self.message = message
-        super().__init__(self.message)
-
-    def __str__(self):
-        return self.message
+    pass
 
 
 def parse_csv(path: str) -> Tuple:
@@ -55,7 +56,7 @@ def parse_csv(path: str) -> Tuple:
             if idx and row:  # first contains header, take non empty rows
                 data.append(tuple(row[0].split(';')))
     if not data:
-        raise EmptyFileException()
+        raise EmptyFileException('Пустой файл. Попробуйте другой')
     data = tuple(data)
     return data
 
@@ -76,7 +77,7 @@ def get_department_hierarchy(report_data: Tuple) -> DefaultDict[str, set]:
             out_dict[department].add(branch)
         return out_dict
     except IndexError:
-        raise WrongFileFormatException()
+        raise WrongFileFormatException('Неверный формат файла')
 
 
 def print_hierarchy(hierarchy: DefaultDict[str, set]) -> None:
@@ -108,7 +109,7 @@ def fill_dict_department_info(employee: str, dict_to_fill: Dict) -> Dict:
     try:
         _, department, _, _, _, salary = employee
     except ValueError:
-        raise WrongFileFormatException()
+        raise WrongFileFormatException('Неверный формат файла')
     salary = int(salary)
     data_of_department = dict_to_fill.get(department)
     if not data_of_department:
