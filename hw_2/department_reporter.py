@@ -47,6 +47,7 @@ def parse_csv(path: str) -> Tuple:
 
              ('Творимир Давыдович Суханов', 'Маркетинг', 'Perfomance', 'Маркетинг-Менеджер', 4.0, 65900)
             )
+            # todo: -> namedDict structure (new func)
     """
 
     data = []
@@ -68,7 +69,7 @@ def get_department_hierarchy(report_data: Tuple) -> DefaultDict[str, set]:
     :param report_data: parsed data from csv-report of employees
     :return: hierarchy as dict with keys - Department and values - branch
     """
-
+    # todo: Exceptions
     out_dict = defaultdict(set)
     try:
         for employee in report_data:
@@ -196,7 +197,7 @@ def export_department_report_to_csv(department_report: Dict, output_filename: st
         writer.writerow(['Наименование департамента',
                          'Штат департамента',
                          'Зарплатная вилка',
-                         'Средняя зарплата'])
+                         'Средняя зарплата'])  # todo: Consts
         for department, department_data in department_report.items():
             writer.writerow([department,
                              department_data['population'],
@@ -251,8 +252,8 @@ def main():
     data_of_departments = None
     while command:
         try:
-            command = int(input())
-            if command not in [0, 1, 2, 3]:
+            command = int(input())  # try for one line not the whole part
+            if command not in [0, 1, 2, 3]:  # todo: const
                 print('Неизвестная команда. Повторите ввод')
                 continue
             if not data_processed and command:
@@ -272,3 +273,6 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+
+# todo: mypy --strict --disallow-any
