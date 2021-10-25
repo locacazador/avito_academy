@@ -20,8 +20,6 @@ class CountVectorizer:
         Get counts of any feature in sentence.
 
         :param text_corpus - list of sentences to be processed
-
-        O(N * max(M_i))
         """
         features = []
         for txt_index, text in enumerate(text_corpus):
@@ -54,6 +52,7 @@ class CountVectorizer:
         """
         Pipeline of consistent fit & transform
 
+        :param text_corpus - corpus to be processed
         :return: count matrix for text corpus
         """
         self.fit(text_corpus)
