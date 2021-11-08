@@ -23,11 +23,11 @@ class CountVectorizer:
         """
         features = []
         for txt_index, text in enumerate(text_corpus):
-            list_of_words = text.lower().split(self.delimiter)
+            list_of_words = text.lower().split(self.delimiter)  # todo: normalize func
             self._feature_frequency.append(Counter(list_of_words))
             self._corpus.append(list_of_words)
             for word in list_of_words:
-                if word not in features:
+                if word not in features:  # todo: set()
                     features.append(word)
             self._feature_names = features
 
@@ -44,7 +44,8 @@ class CountVectorizer:
         for txt_index, _ in enumerate(self._corpus):
             current_counter = []
             for feature in self._feature_names:
-                current_counter.append(self._feature_frequency[txt_index][feature])
+                current_counter.append(self._feature_frequency[txt_index]
+                                       [feature])
             count_matrix_out.append(current_counter)
         return count_matrix_out
 
@@ -63,7 +64,8 @@ class CountVectorizer:
         Get list of tokens from corpus
         """
         if len(self._feature_names) == 0:
-            raise ValueError('The list of tokens is empty. Use fit method before getting features')
+            raise ValueError('The list of tokens is empty.'
+                             ' Use fit method before getting features')
         return self._feature_names
 
 
@@ -72,7 +74,7 @@ if __name__ == '__main__':
         'Crock Pot Pasta Never boil pasta again',
         'Pasta Pomodoro Fresh ingredients Parmesan to taste'
     ]
-    vectorizer = CountVectorizer()
+    vectorizer = CountVectorizer()  # todo: clean after using
     count_matrix = vectorizer.fit_transform(corpus)
     assert count_matrix == [[1, 1, 2, 1, 1, 1, 0, 0, 0, 0, 0, 0],
                             [0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1]]
