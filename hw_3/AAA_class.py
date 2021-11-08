@@ -1,7 +1,7 @@
 from typing import List
 from math import log
 
-from count_vectorizer import CountVectorizer
+from hw_3.count_vectorizer import CountVectorizer
 
 
 class TfidfTransformer:
@@ -53,17 +53,6 @@ if __name__ == '__main__':
         'Crock Pot Pasta Never boil pasta again',
         'Pasta Pomodoro Fresh ingredients Parmesan to taste'
     ]
-    vectorizer = TfifdVectorizer()  # todo: clean after using
+    vectorizer = TfifdVectorizer()
     count_matrix = vectorizer.fit_transform(corpus)
     print(count_matrix)
-    #assert count_matrix == [[1, 1, 2, 1, 1, 1, 0, 0, 0, 0, 0, 0],
-    #                        [0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1]]
-    #print(count_matrix)
-    #feature_list = vectorizer.get_feature_names()
-    #assert feature_list == ['crock', 'pot', 'pasta', 'never', 'boil',
-    #                        'again', 'pomodoro', 'fresh', 'ingredients',
-    #                        'parmesan', 'to', 'taste']
-    # print(tf_transform(count_matrix))
-    # print(idf_transform(count_matrix))
-    #tfidf_transform = TfidfTransformer()
-    #print(tfidf_transform.fit_transform(count_matrix))
