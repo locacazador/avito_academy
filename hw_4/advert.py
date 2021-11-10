@@ -128,5 +128,5 @@ if __name__ == '__main__':
     }"""
     test_5 = Advert(json.loads(iphone_X))
     print(test_5)
-    test_6 = Advert(json.loads(corgi), repr_color_code=32)
+    test_6 = Advert(json.loads(corgi), repr_color_code=33)
     print(test_6)
