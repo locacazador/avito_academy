@@ -30,7 +30,7 @@ class Advert(ColorizeMixIn):
         mapper = InnerNestedAttribute(mapping).__dict__
         if mapper.get('price', 0) < 0:
             raise ValueError('price must be >= 0')
-        self.__dict__.update(InnerNestedAttribute(mapping).__dict__)
+        self.__dict__.update(mapper)
 
     def __getattr__(self, item):
         """
