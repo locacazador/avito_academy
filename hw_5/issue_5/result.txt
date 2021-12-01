@@ -1,11 +1,16 @@
-$ python -m pytest --cov
+$ python -m pytest --cov -v .
 ========================================================================================================== test session starts ===========================================================================================================
-platform win32 -- Python 3.7.9, pytest-6.2.4, py-1.10.0, pluggy-0.13.1
+platform win32 -- Python 3.7.9, pytest-6.2.4, py-1.10.0, pluggy-0.13.1 -- C:\Program Files\Python37\python.exe
+cachedir: .pytest_cache
 rootdir: C:\Users\zimav\PycharmProjects\avito_academy\hw_5\issue_5
 plugins: Faker-8.14.0, cov-3.0.0
 collected 5 items
 
-test_what_is_year_now.py .....                                                                                                                                                                                                      [100%]
+test_what_is_year_now.py::test_date_with_hyphen PASSED                                                                                                                                                                              [ 20%]
+test_what_is_year_now.py::test_date_with_dot PASSED                                                                                                                                                                                 [ 40%]
+test_what_is_year_now.py::test_wrong_date_format PASSED                                                                                                                                                                             [ 60%]
+test_what_is_year_now.py::test_no_date_at_all PASSED                                                                                                                                                                                [ 80%]
+test_what_is_year_now.py::test_date_less_then_four_digits PASSED                                                                                                                                                                    [100%]
 
 ----------- coverage: platform win32, python 3.7.9-final-0 -----------
 Name                       Stmts   Miss  Cover
@@ -16,5 +21,5 @@ what_is_year_now.py           19      0   100%
 TOTAL                         48      0   100%
 
 
-=========================================================================================================== 5 passed in 1.56s ============================================================================================================
+=========================================================================================================== 5 passed in 1.58s ============================================================================================================
 
