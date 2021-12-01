@@ -1,0 +1,14 @@
+python -m pytest -v test_one_hot_encoding.py
+========================================================================================================== test session starts ===========================================================================================================
+platform win32 -- Python 3.7.9, pytest-6.2.4, py-1.10.0, pluggy-0.13.1 -- C:\Program Files\Python37\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\zimav\PycharmProjects\avito_academy\hw_5\issue_4
+plugins: Faker-8.14.0, cov-3.0.0
+collected 4 items
+
+test_one_hot_encoding.py::test_empty_args PASSED                                                                                                                                                                                    [ 25%]
+test_one_hot_encoding.py::test_single_string PASSED                                                                                                                                                                                 [ 50%]
+test_one_hot_encoding.py::test_multiple_args PASSED                                                                                                                                                                                 [ 75%]
+test_one_hot_encoding.py::test_not_in_result PASSED                                                                                                                                                                                 [100%]
+
+=========================================================================================================== 4 passed in 0.10s ============================================================================================================

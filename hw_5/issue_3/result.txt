@@ -1,0 +1,17 @@
+test_empty_args (issue_3.test_one_hot_encoding.TestOneHotEncoder)
+Check if exception is raised with no argument ... ok
+test_empty_list_success (issue_3.test_one_hot_encoding.TestOneHotEncoder)
+Test empty list ... ok
+test_not_in_multiple_strings (issue_3.test_one_hot_encoding.TestOneHotEncoder)
+Test whether provided one-hot not in result ... ok
+test_success_equal (issue_3.test_one_hot_encoding.TestOneHotEncoder)
+Test if correct output of method in case of multiple elements ... ok
+test_success_in (issue_3.test_one_hot_encoding.TestOneHotEncoder)
+Test if correct output is a part of final result ... ok
+test_success_one_string (issue_3.test_one_hot_encoding.TestOneHotEncoder)
+Test if correct output in case of single string ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.002s
+
+OK
