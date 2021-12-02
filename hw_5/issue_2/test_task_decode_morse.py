@@ -7,7 +7,8 @@ from morse import decode
     ('.- .- .-', 'AAA'),
     ('...-- ..--- ..---', '322'),
     ('... --- ...', 'SOS'),
-    ('-- .- --. .. -.-. -....- ... - .. -.-. -.-', 'MAGIC-STICK')
+    ('-- .- --. .. -.-. -....- ... - .. -.-. -.-', 'MAGIC-STICK'),
+    ('-- .- --. .. -.-.      ... - .. -.-. -.-', 'MAGIC STICK')
 ])
 def test_decode_regular(s, exp):
     assert decode(s) == exp
