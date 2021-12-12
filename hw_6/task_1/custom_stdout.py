@@ -6,6 +6,10 @@ ORIGINAL_WRITE = sys.stdout.write
 
 
 def my_write(string_text):
+    """
+    Wrap string_text and add technical information of the current time usage
+    :param string_text: text into stdout
+    """
     if not len(string_text.rstrip()):  # because standard print method adds \n character
         return
     now = datetime.datetime.now()

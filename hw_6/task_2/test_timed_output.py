@@ -8,7 +8,7 @@ from timed_output import print_greeting
 
 def test_timed_print():
     """
-    Test  print_greeting function with decorator @timed_output
+    Test print_greeting function with decorator @timed_output
     """
     current_time = datetime.datetime(year=2021, month=12, day=5,
                                      hour=12, minute=0, second=0)
