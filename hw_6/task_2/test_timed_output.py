@@ -1,5 +1,4 @@
 import datetime
-import sys
 from unittest.mock import patch
 from io import StringIO
 
@@ -17,4 +16,5 @@ def test_timed_print():
             mock_date.now.return_value = current_time
             with patch('builtins.input', return_value='Volodya'):
                 print_greeting(input())
-                assert mock_stdout.getvalue() == '[2021-12-05 12:00:00]: Hello, Volodya!\n'
+                assert mock_stdout.getvalue() == '[2021-12-05 12:00:00]:' \
+                                                 ' Hello, Volodya!\n'

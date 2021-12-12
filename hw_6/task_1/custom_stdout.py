@@ -1,16 +1,16 @@
 import datetime
 import sys
 
-
 ORIGINAL_WRITE = sys.stdout.write
 
 
 def my_write(string_text):
     """
     Wrap string_text and add technical information of the current time usage
+    Standard print method adds \n character
     :param string_text: text into stdout
     """
-    if not len(string_text.rstrip()):  # because standard print method adds \n character
+    if not len(string_text.rstrip()):  # \n
         return
     now = datetime.datetime.now()
     formatted_now = f"[{now.strftime('%Y-%m-%d %H:%M:%S')}]: "

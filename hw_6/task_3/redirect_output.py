@@ -20,7 +20,8 @@ def redirect_output(filepath):
 @redirect_output('./function_output.txt')
 def calculate():
     """
-    Print num ** power for all numbers between 1 and 19 inclusively. Power expected to be from 1 to 4 inclusively
+    Print num ** power for all numbers between 1 and 19 inclusively.
+    Power expected to be from 1 to 4 inclusively
     """
     for power in range(1, 5):
         for num in range(1, 20):
