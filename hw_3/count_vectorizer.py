@@ -23,11 +23,11 @@ class CountVectorizer:
         """
         features = []
         for txt_index, text in enumerate(text_corpus):
-            list_of_words = text.lower().split(self.delimiter)  # todo: normalize func
+            list_of_words = text.lower().split(self.delimiter)
             self._feature_frequency.append(Counter(list_of_words))
             self._corpus.append(list_of_words)
             for word in list_of_words:
-                if word not in features:  # todo: set()
+                if word not in features:
                     features.append(word)
             self._feature_names = features
 
