@@ -4,7 +4,7 @@ import sys
 ORIGINAL_WRITE = sys.stdout.write
 
 
-def my_write(string_text):
+def my_write(string_text: str):
     """
     Wrap string_text and add technical information of the current time usage
     Standard print method adds \n character

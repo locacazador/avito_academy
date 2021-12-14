@@ -1,13 +1,14 @@
 import sys
+from typing import Callable
 
 
-def redirect_output(filepath):
+def redirect_output(filepath: str) -> Callable:
     """
     Decorator to redirect output stream into file with path: = filepath
     :param filepath: path of the file to redirect to
     """
-    def wrapper(function):
-        def decorated(*args, **kwargs):
+    def wrapper(function: Callable) -> Callable:
+        def decorated(*args, **kwargs) -> None:
             old_sys_stdout = sys.stdout
             with open(filepath, 'w+') as file_output:
                 sys.stdout = file_output
