@@ -24,3 +24,4 @@ def test_redirect_output_into_file():
                           ' 130321 \n']
         assert lines == expected_lines
     os.remove(CONST_FILE_PATH)  # delete after testing
+    # todo: temp file for testing

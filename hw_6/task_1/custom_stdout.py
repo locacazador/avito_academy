@@ -12,10 +12,9 @@ def my_write(string_text: str):
     """
     if not len(string_text.rstrip()):  # \n
         return
-    now = datetime.datetime.now()
-    formatted_now = f"[{now.strftime('%Y-%m-%d %H:%M:%S')}]: "
-    output_row = formatted_now + string_text + '\n'
-    ORIGINAL_WRITE(output_row)
+    now = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    formatted_now = f"[{now}]: {string_text}\n"
+    ORIGINAL_WRITE(formatted_now)
 
 
 def main():

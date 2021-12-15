@@ -12,8 +12,9 @@ def redirect_output(filepath: str) -> Callable:
             old_sys_stdout = sys.stdout
             with open(filepath, 'w+') as file_output:
                 sys.stdout = file_output
-                function(*args, **kwargs)
+                result = function(*args, **kwargs)
             sys.stdout = old_sys_stdout
+            return result
         return decorated
     return wrapper
 
