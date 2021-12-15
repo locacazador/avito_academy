@@ -8,17 +8,16 @@ def timed_output(function: Callable) -> Callable:
     Add technical information of the current time into stdout
     :param function: function to decorate
     """
+    original_write = sys.stdout.write
+
+    def my_write(string_text):
+        if not string_text.rstrip():  # \n
+            return string_text.rstrip()
+        now = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        formatted_now = f"[{now}]: {string_text}\n"
+        original_write(formatted_now)
 
     def wrapper(*args, **kwargs) -> Callable:
-        original_write = sys.stdout.write
-
-        def my_write(string_text):
-            if not string_text.rstrip():  # \n
-                return string_text.rstrip()
-            now = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-            formatted_now = f"[{now}]: {string_text}\n"
-            original_write(formatted_now)
-
         sys.stdout.write = my_write
         result = function(*args, **kwargs)
         sys.stdout.write = original_write
