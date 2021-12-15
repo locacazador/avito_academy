@@ -10,7 +10,7 @@ def my_write(string_text: str):
     Standard print method adds \n character
     :param string_text: text into stdout
     """
-    if not len(string_text.rstrip()):  # \n
+    if not string_text.rstrip():  # \n
         return
     now = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     formatted_now = f"[{now}]: {string_text}\n"
